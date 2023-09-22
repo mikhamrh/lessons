@@ -1,0 +1,209 @@
+/* =================== СКИДАННЯ СТИЛІВ =================== */
+@import url("reset.css");
+/* ======================================================= */
+
+/* ==================== ОСНОВНІ СТИЛІ ==================== */
+/* * {
+    color: red;
+} */
+body {
+    color: darkgrey;
+}
+[class*="__title"] {
+    color: red;
+}
+#support-of-ukraine-id {
+    color: green;
+}
+li.item-bnd {
+    color: aqua;
+}
+.footer__item.item-ftr {
+    color: aquamarine;
+}
+.item-hst__title,
+.item-hst__text {
+    color: bisque;
+}
+.header__sublist a {
+    color: brown;
+}
+.musical-style .musical-style__title {
+    color: blue;
+}
+.fandom * {
+    color: gray;
+}
+.header__list > li {
+    color: burlywood;
+}
+.item-hst__title ~ div {
+    color: aquamarine;
+}
+.item-dsc__img + h3 {
+    color: black;
+}
+
+/* ---------------- ШАПКА ---------------- */
+.header {
+    color: darkslateblue;
+}
+.header__container {
+}
+.header__title {
+}
+.header__text {
+}
+.header__list {
+}
+.header__item {
+}
+.header__link {
+}
+.header__sublist {
+}
+.header__subitem {
+}
+/* --------------------------------------- */
+
+/* ----------------- МЕЙН ---------------- */
+.page {
+}
+.page__history {
+}
+.page__musical-style {
+}
+.page__fandom {
+}
+.page__support-of-ukraine {
+}
+.page__band-composition {
+}
+.page__discography {
+}
+
+/* -------- ІСТОРІЯ -------- */
+.history {
+}
+.history__container {
+}
+.history__title {
+}
+.history__list {
+}
+.history__item {
+}
+.item-hst {
+}
+.item-hst__title {
+}
+.item-hst__text {
+}
+/* ------------------------- */
+
+/* ----- МУЗИЧНИЙ СТИЛЬ ---- */
+.musical-style {
+}
+.musical-style__container {
+}
+.musical-style__title {
+}
+.musical-style__text {
+}
+/* ------------------------- */
+
+/* --------- ФАНДОМ -------- */
+.fandom {
+}
+.fandom__container {
+}
+.fandom__title {
+}
+.fandom__text {
+}
+/* ------------------------- */
+
+/* --- ПІДТРИМКА УКРАЇНИ --- */
+.support-of-ukraine {
+}
+.support-of-ukraine__container {
+}
+.support-of-ukraine__title {
+}
+.support-of-ukraine__text {
+    /* color: black; */
+}
+/* ------------------------- */
+
+/* ------ СКЛАД ГУРТУ ------ */
+.band-composition {
+}
+.band-composition__container {
+}
+.band-composition__title {
+}
+.band-composition__list {
+}
+.band-composition__item {
+}
+.item-bnd {
+}
+.item-bnd__title {
+}
+.item-bnd__list {
+}
+.item-bnd__item {
+}
+/* ------------------------- */
+
+/* ------ ДИСКОГРАФІЯ ------ */
+.discography {
+}
+.discography__container {
+}
+.discography__title {
+}
+.discography__list {
+}
+.discography__item {
+}
+.item-dsc {
+}
+.item-dsc__link {
+}
+.item-dsc__body {
+}
+.item-dsc__img {
+}
+.item-dsc__title {
+}
+.item-dsc__text {
+}
+/* ------------------------- */
+/* --------------------------------------- */
+
+/* ---------------- ФУТЕР ---------------- */
+.footer {
+}
+.footer__container {
+}
+.footer__title {
+}
+.footer__list {
+}
+.footer__item {
+}
+.item-ftr {
+}
+.item-ftr__title {
+}
+.item-ftr__list {
+}
+.item-ftr__subitem {
+}
+.item-ftr__logo {
+}
+.item-ftr__link {
+}
+/* --------------------------------------- */
+/* ======================================================= */
