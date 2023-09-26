@@ -1,0 +1,43 @@
+/* ===================== GOOGLE FONTS ==================== */
+@import url("https://fonts.googleapis.com/css?family=Inter:regular,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:600,700&display=swap");
+/* ======================================================= */
+
+/* ================== MANUAL CONNECTION ================== */
+@font-face {
+    font-family: "BelongSans";
+    src:
+        url("../fonts/BelongSans-ExtraLight.woff2") format("woff2"),
+        url("../fonts/BelongSans-ExtraLight.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BelongSans";
+    src:
+        url("../fonts/BelongSans-ExtraLightItalic.woff2") format("woff2"),
+        url("../fonts/BelongSans-ExtraLightItalic.woff") format("woff");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BelongSans";
+    src:
+        url("../fonts/BelongSans-Medium.woff2") format("woff2"),
+        url("../fonts/BelongSans-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "BelongSans";
+    src:
+        url("../fonts/BelongSans-Bold.woff2") format("woff2"),
+        url("../fonts/BelongSans-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+/* ======================================================= */
