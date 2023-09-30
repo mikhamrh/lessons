@@ -1,0 +1,269 @@
+/* ================= CONNECTION OF FONTS ================= */
+@import url("fonts.css");
+/* ======================================================= */
+
+/* ===================== RESET STYLES ==================== */
+@import url("reset.css");
+/* ======================================================= */
+
+/* ===================== BASIC STYLES ==================== */
+body {
+    color: #7D7D7D;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    line-height: 1.27;
+}
+/* ------------------------ HEADER ----------------------- */
+.header {
+    padding: 100px 0;
+    background-color: rgba(55, 57, 63, 0.91);
+}
+.header__container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.header__title {
+    color: #FFF;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.10;
+    text-transform: capitalize;
+}
+/* ------------------------------------------------------- */
+
+/* ------------------------- MAIN ------------------------ */
+/* .page {
+}
+.page__why-us {
+}
+.page__what-we-do {
+} */
+/* ---------------- WHY US --------------- */
+.why-us {
+    padding: 80px 0;
+}
+.why-us__container {
+    max-width: 722px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.why-us__container > *:not(:last-child) {
+    margin: 0 0 40px 0;
+}
+/* .why-us__img {
+} */
+.why-us__img img {
+    max-width: 100%;
+}
+/* .why-us__content {
+} */
+.why-us__title {
+    color: #37393F;
+    font-size: 30px;
+    text-transform: capitalize;
+    margin: 0 0 12px 0;
+}
+.why-us__text {
+    line-height: 1.46;
+}
+.why-us__text p:not(:last-child) {
+    margin: 0 0 15px 0;
+}
+/* .why-us__services {
+}
+.services {
+} */
+.services__title {
+    color: #37393F;
+    font-size: 25px;
+    margin: 0 0 15px 0;
+}
+.services__subtitle {
+    color: #6B77E5;
+    font-size: 20px;
+    margin: 0 0 12px 0;
+}
+.services__text {
+    line-height: 1.5;
+}
+.services__text p:not(:last-child) {
+    margin: 0 0 15px 0;
+}
+/* .why-us__benefits {
+} */
+.benefits {
+    font-size: 0;
+}
+.benefits__img {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 29px 0 0;
+}
+.benefits__content {
+    width: 332px;
+    display: inline-block;
+}
+.benefits__title {
+    color: #37393F;
+    font-size: 25px;
+    margin: 0 0 15px 0;
+}
+.benefits__subtitle {
+    color: #40DDB6;
+    font-size: 20px;
+    margin: 0 0 25px 0;
+}
+.benefits__list {
+    font-size: 18px;
+    line-height: 1.5;
+}
+.benefits__list li:not(:last-child) {
+    margin: 0 0 30px 0;
+}
+/* --------------------------------------- */
+/* -------------- WHAT WE DO ------------- */
+.what-we-do {
+    background: #FFF9F4;
+    padding: 80px 0;
+}
+.what-we-do__container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    font-size: 0;
+}
+.what-we-do__content {
+    max-width: 563px;
+    display: inline-block;
+    padding: 20px 0;
+    margin: 0 38px 0 0;
+}
+.what-we-do__label {
+    color: #D06B00;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+}
+.what-we-do__title {
+    color: #0E333D;
+    font-family: "DM Serif Text", serif;
+    font-size: 59px;
+    line-height: 1.465;
+    text-transform: capitalize;
+    margin: 0 0 25px 0;
+}
+.what-we-do__text {
+    color: #474747;
+    font-size: 20px;
+    line-height: 1.80;
+}
+.what-we-do__text p:not(:last-child) {
+    margin: 0 0 15px 0;
+}
+.what-we-do__img {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0px;
+}
+.what-we-do__img img:not(:last-child) {
+    margin: 0 22px 0 0;
+}
+/* --------------------------------------- */
+/* ------------------------------------------------------- */
+
+/* ------------------------ FOOTER ----------------------- */
+.footer {
+    font-family: DM Sans;
+    background-color: #0E333D;
+    padding: 46px 0 50px 0;
+}
+.footer [class*="__title"] {
+    color: #FFF;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+.footer [class*="__list"] {
+    color: #DCDCDC;
+    font-size: 14px;
+}
+.footer__container {
+    max-width: 1330px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.footer__columns {
+}
+.footer__info {
+    display: inline-block;
+    vertical-align: top;
+    width: 320px;
+    margin: 0 168px 0 0;
+}
+.info {
+    padding: 19px 0;
+}
+.info__logo {
+    margin: 0 0 8px 0;
+}
+.info__text {
+    color: #DCDCDC;
+    font-family: Ubuntu;
+    font-size: 16px;
+    line-height: 1.80;
+}
+.footer__Links {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 124px 0 0;
+}
+.links-ftr {
+}
+.links-ftr *:not(:last-child) {
+    margin: 0 0 24px 0;
+}
+.links-ftr__title {
+}
+.links-ftr__list {
+}
+.footer__about {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 121px 0 0;
+}
+.about-ftr {
+}
+.about-ftr *:not(:last-child) {
+    margin: 0 0 24px 0;
+}
+.about-ftr__title {
+}
+.about-ftr__list {
+}
+.footer__shop {
+    display: inline-block;
+    vertical-align: top;
+    width: 277px;
+}
+.shop-ftr {
+}
+.shop-ftr__title {
+    margin: 0 0 19px 0;
+}
+.shop-ftr__list {
+    line-height: 1.8;
+}
+.shop-ftr__list li:not(:last-child) {
+    margin: 0 0 24px 0;
+}
+/* ------------------------------------------------------- */
+/* ======================================================= */
