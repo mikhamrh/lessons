@@ -1,0 +1,561 @@
+/* ================= CONNECTION OF FONTS ================= */
+@import url("fonts.css");
+/* ======================================================= */
+
+/* ===================== RESET STYLES ==================== */
+@import url("reset.css");
+/* ======================================================= */
+
+/* ===================== BASIC STYLES ==================== */
+body {
+    color: #7D7D7D;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+}
+h1,
+h2,
+h3,
+h4 {
+    color: #37393F;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    line-height: 1.21;
+}
+[class*="__container"] {
+    max-width: 1250px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+/* ------------------------ HEADER ----------------------- */
+.header {
+    margin-bottom: 150px;
+    background: url(../img/main/moroccan_flower.jpg);
+}
+/* .header__container {
+} */
+.header__body {
+    padding: 30px 0;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 0;
+}
+.header__logo {
+    margin: 0 195px 0 0;
+}
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+.logo a {
+    vertical-align: middle;
+}
+.logo img {
+    vertical-align: middle;
+    margin: 0 4px 0 0;
+}
+.logo__text {
+    color: #37393F;
+    font-family: "Poppins";
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.52;
+    vertical-align: middle;
+}
+.logo__text span {
+    color: #6B77E5;
+}
+.header__menu {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    padding: 22px 0;
+}
+.header__menu > li {
+    display: inline-block;
+    color: #37393F;
+    font-size: 18px;
+    line-height: 1.22;
+}
+.header__menu > li:not(:last-child) {
+    margin: 0 40px 0 0;
+}
+/* ------------------------------------------------------- */
+
+/* ------------------------- MAIN ------------------------ */
+/* .page {
+} */
+.page > * {
+    margin-bottom: 150px;
+}
+/* .page__we-care {
+}
+.page__latest-projects {
+}
+.page__clothing-for-women {
+}
+.page__we-made {
+}
+.page__practice {
+} */
+
+/* --------------- WE CARE --------------- */
+/* .we-care {
+} */
+.we-care__container {
+    max-width: 700px;
+}
+/* .we-care__content {
+} */
+.we-care__content > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+.we-care__head {
+    max-width: 415px;
+}
+/* .head-block {
+} */
+.head-block > *:not(:last-child) {
+    margin-bottom: 16px;
+}
+.head-block_center {
+    text-align: center;
+}
+.head-block__label {
+    color: #37393F;
+    font-weight: 500;
+    line-height: 1.22;
+    display: inline-block;
+    padding: 0 0 0 18px;
+    background: url(../img/main/we_care/tiny_square.jpg) 0 5px no-repeat;
+}
+.head-block__title {
+    font-family: "Poppins";
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.21;
+}
+.we-care__text {
+    line-height: 1.46;
+}
+.we-care__text > p:not(:last-child) {
+    margin-bottom: 15px;
+}
+/* .we-care__footer {
+}
+.footer-wcr {
+} */
+.footer-wcr > *:not(:last-child) {
+    margin-bottom: 37px;
+}
+/* .footer-wcr__content {
+} */
+.footer-wcr__content > *:not(:last-child) {
+    margin-bottom: 43px;
+}
+.we-care__list {
+    color: #37393F;
+    font-family: "Poppins";
+    font-size: 20px;
+    line-height: 1.65;
+}
+.we-care__list > li {
+    padding: 0 0 0 35px;
+    background: url(../img/main/we_care/check_mark.svg) 0 3px no-repeat;
+}
+.we-care__list > li:not(:last-child) {
+    margin-bottom: 23px;
+}
+.we-care__cards {
+    font-size: 0;
+}
+.we-care__cards > li:not(:last-child) {
+    margin-right: 21px;
+}
+/* .we-care__card {
+} */
+.card-wcr {
+    max-width: 298px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #E3E3E3;
+}
+.card-wcr_experience{
+    padding: 32px;
+}
+.card-wcr_winner {
+    padding: 32px 37px;
+}
+.card-wcr__content {
+    padding: 0 0 0 58px;
+}
+.card-wcr_experience .card-wcr__content {
+    background: url(../img/main/we_care/experience_icon.svg) no-repeat;
+}
+.card-wcr_winner .card-wcr__content {
+    background: url(../img/main/we_care/winner_icon.svg) no-repeat;
+}
+.card-wcr__title {
+    color: #37393F;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 3px 0;
+}
+.card-wcr__text {
+    font-size: 16px;
+    line-height: 1.35;
+}
+.card-wcr__text p:not(:last-child) {
+    margin-bottom: 10px;
+}
+.footer-wcr__button {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.22;
+    text-transform: capitalize;
+    background-color: #6B77E5;
+    display: inline-block;
+    padding: 22px 27px;
+}
+/* --------------------------------------- */
+
+/* ------------ LATEST PROJECTS ---------- */
+/* .latest-projects {
+}
+.latest-projects__container {
+}
+.latest-projects__contetn {
+} */
+.latest-projects__contetn > *:not(:last-child) {
+    margin-bottom: 47px;
+}
+.latest-projects__desc {
+    max-width: 852px;
+    margin: 0 auto;
+}
+.latest-projects__desc > *:not(:last-child) {
+    margin-bottom: 14px;
+}
+/* .latest-projects__head {
+} */
+.latest-projects__text {
+    text-align: center;
+    line-height: 1.46;
+}
+.latest-projects__text p:not(:last-child) {
+    margin-bottom: 15px;
+}
+/* .latest-projects__cards {
+} */
+.latest-projects__cards > *:not(:last-child) {
+    margin-bottom: 58px;
+}
+.latest-projects__row {
+    font-size: 0;
+    margin: 0 -17px;
+}
+/* .latest-projects__card {
+} */
+.card-lpr {
+    display: inline-block;
+    width: calc(100% / 3);
+    padding: 0 17px;
+}
+.card-lpr > *:not(:last-child) {
+    margin-bottom: 24px;
+}
+.card__img {
+    width: 100%;
+    height: 501px;
+}
+.card__img_first {
+    background: url(../img/main/latest_projects/financial_investmen_1.jpeg) center no-repeat;
+}
+.card__img_second {
+    background: url(../img/main/latest_projects/marketing_strategy_2.jpeg) center no-repeat;
+}
+.card__img_third {
+    background: url(../img/main/latest_projects/business_consulting_3.jpeg) center no-repeat;
+}
+.card__img_fourth {
+    background: url(../img/main/latest_projects/financial_investmen_4.jpeg) center no-repeat;
+}
+.card__img_fifth {
+    background: url(../img/main/latest_projects/web_develoment_5.jpeg) center no-repeat;
+}
+.card__img_sixth {
+    background: url(../img/main/latest_projects/financial_investmen_6.jpeg) center no-repeat;
+}
+/* .card__content {
+} */
+.card__desc {
+    display: inline-block;
+    width: 346px;
+}
+.card__desc > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+.card__title {
+    color: #37393F;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.27;
+}
+.card__date {
+    font-size: 14px;
+    line-height: 1.57;
+    padding: 0 0 0 25px;
+    background: url(../img/main/latest_projects/date_icon.svg) no-repeat;
+}
+.card__button {
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    background: url(../img/main/latest_projects/button_icon.svg) no-repeat;
+}
+/* --------------------------------------- */
+
+/* ---------- CLOTHING FOR WOMEN --------- */
+/* .clothing-for-women {
+} */
+.clothing-for-women__container {
+    max-width: 1270px;
+}
+.clothing-for-women__body {
+    color: #807D7E;
+    font-size: 20px;
+    padding: 0 0 0 21px;
+}
+.clothing-for-women__body > * {
+    margin-bottom: 25px;
+}
+.clothing-for-women__body > *:last-child {
+    margin-bottom: 0;
+}
+.clothing-for-women__title {
+    color: #3C4242;
+    font-family: "CoreSansC";
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.56px;
+    padding: 0 0 0 21px;
+    margin: 0 0 30px -21px;
+    background: url(../img/main/clothing_for_women/rectangle.svg) no-repeat;
+}
+.clothing-for-women__subtitle {
+    color: #807D7E;
+    font-family: "CoreSansC";
+    font-weight: 600;
+    line-height: 1.67;
+    letter-spacing: 0.4px;
+}
+.clothing-for-women__text {
+    font-family: "Causten";
+    line-height: 1.67;
+    letter-spacing: 0.4px;
+}
+.clothing-for-women__text span {
+    font-weight: 700;
+}
+.clothing-for-women__text a {
+    font-family: "CoreSansC";
+    font-weight: 600;
+}
+.clothing-for-women__text > p:not(:last-child) {
+    margin-bottom: 20px;
+}
+/* --------------------------------------- */
+
+/* --------------- WE MADE --------------- */
+/* .we-made {
+} */
+.we-made__container {
+    max-width: 1270px;
+}
+.we-made__content {
+    /* font-size: 0; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.we-made__left-block {
+    /* display: inline-block; */
+    /* width: calc(614 * 100% / 1240); */
+    flex: 1 1 calc(614 * 100% / 1240);
+    padding: 183px 74px 175px;
+    background:
+        linear-gradient(0deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%),
+        url(../img/main/we_made/leaf_bg.jpg) center / cover no-repeat;
+    border-radius: 15px 0 0 15px;
+}
+.we-made__left-block > * {
+    margin-bottom: 15px;
+}
+.we-made__left-block > *:last-child {
+    margin-bottom: 0;
+}
+.right-block__title {
+    color: #FFFFFF;
+    font-family: "CoreSansC";
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.47;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+.we-made__text {
+    color: #FFFFFF;
+    font-family: "Causten";
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    margin: 0 0 50px 0;
+}
+.we-made__text > p:not(:last-child) {
+    margin-bottom: 10px;
+}
+.we-made__button {
+    color: #3C4242;
+    text-align: center;
+    font-family: "Causten";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.22;
+    display: inline-block;
+    padding: 12px 44px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    margin: 0 0 12px 0;
+}
+.we-made__right-block {
+    /* display: inline-block; */
+    /* vertical-align: top; */
+    /* width: calc(626 * 100% / 1240); */
+    flex: 1 1 calc(626 * 100% / 1240);
+    min-height: 640.89px;
+    background: url(../img/main/we_made/group_photo.jpg) center top / cover no-repeat;
+    border-radius: 0 15px 15px 0;
+}
+/* --------------------------------------- */
+
+/* --------------- PRACTICE -------------- */
+/* .practice {
+} */
+.practice__container {
+    max-width: 1270px;
+}
+.practice__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+.practice__blok {
+    color: #FFFFFF;
+    flex: 1 1 605px;
+    height: 400px;
+    background-color: #7D7D7D;
+    padding: 20px;
+}
+.practice__blok_1 {
+    background-color: purple;
+}
+.practice__blok_2 {
+    background-image: linear-gradient(135deg, rgba(54,17,103,1) 0%, rgba(205,0,255,0.9556197478991597) 100%);
+}
+.practice__blok_3 {
+    background-image: url(../img/main/practice/polar_lights.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.practice__blok_4 {
+    background-image: url(../img/main/practice/polar_lights.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.practice__blok_5 {
+    background-image: url(../img/main/practice/galaxy.jpeg);
+    background-position: 50%;
+}
+.practice__blok_6 {
+    background-image: url(../img/main/practice/galaxy.jpeg);
+    background-size: 200px;
+}
+.practice__blok_7 {
+    background-image: url(../img/main/practice/galaxy.jpeg);
+    background-size: 300px;
+    background-repeat: no-repeat;
+}
+.practice__blok_8 {
+    background-image: url(../img/main/practice/galaxy.jpeg);
+    background-size: cover;    
+}
+.practice__blok_9 {
+    background-image: url(../img/main/practice/galaxy.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.practice__blok_10 {
+    background: url(../img/main/practice/astronaut.jpg) center / cover no-repeat;
+}
+/* --------------------------------------- */
+/* ------------------------------------------------------- */
+
+/* ------------------------ FOOTER ----------------------- */
+.footer {
+    background-color: #37393F;
+    padding: 60px 0;
+}
+/* .footer__container {
+} */
+.footer__row {
+    font-size: 0;
+}
+.footer__logo {
+    margin: 0 185px 0 0;
+}
+.logo__text_light {
+    color: #FFFFFF;
+}
+/* .footer__list {
+} */
+.list-contacts {
+    display: inline-block;
+}
+.list-contacts > li {
+    display: inline-block;
+}
+.list-contacts > li:not(:last-child) {
+    margin: 0 60px 0 0;
+}
+.list-contacts img {
+    vertical-align: middle;
+    margin: 0 10px 0 0;
+}
+.list-contacts__content {
+    display: inline-block;
+    vertical-align: middle;
+}
+.list-contacts__label {
+    color: #FFFFFF;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: capitalize;
+    margin: 0 0 3px 0;
+}
+.list-contacts__content a {
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.22;
+}
+/* ------------------------------------------------------- */
+/* ======================================================= */
