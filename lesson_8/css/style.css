@@ -270,22 +270,22 @@ h4 {
     height: 501px;
 }
 .card__img_first {
-    background: url(../img/main/latest_projects/financial_investmen_1.jpeg) center no-repeat;
+    background: url(../img/main/latest_projects/financial_investmen_1.jpeg) center / cover no-repeat;
 }
 .card__img_second {
-    background: url(../img/main/latest_projects/marketing_strategy_2.jpeg) center no-repeat;
+    background: url(../img/main/latest_projects/marketing_strategy_2.jpeg) center / cover no-repeat;
 }
 .card__img_third {
-    background: url(../img/main/latest_projects/business_consulting_3.jpeg) center no-repeat;
+    background: url(../img/main/latest_projects/business_consulting_3.jpeg) center / cover no-repeat;
 }
 .card__img_fourth {
-    background: url(../img/main/latest_projects/financial_investmen_4.jpeg) center no-repeat;
+    background: url(../img/main/latest_projects/financial_investmen_4.jpeg) center / cover no-repeat;
 }
 .card__img_fifth {
-    background: url(../img/main/latest_projects/web_develoment_5.jpeg) center no-repeat;
+    background: url(../img/main/latest_projects/web_develoment_5.jpeg) center / cover no-repeat;
 }
 .card__img_sixth {
-    background: url(../img/main/latest_projects/financial_investmen_6.jpeg) center no-repeat;
+    background: url(../img/main/latest_projects/financial_investmen_6.jpeg) center / cover no-repeat;
 }
 /* .card__content {
 } */
