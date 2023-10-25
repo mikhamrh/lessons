@@ -1,0 +1,179 @@
+/* ================= CONNECTION OF FONTS ================= */
+@import url("fonts.css");
+/* ======================================================= */
+
+/* ===================== RESET STYLES ==================== */
+@import url("reset.css");
+/* ======================================================= */
+
+/* ===================== BASIC STYLES ==================== */
+body {
+    color: #7D7D7D;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+}
+h1,
+h2,
+h3,
+h4 {
+    color: #37393F;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+[class*="__container"] {
+    max-width: 1250px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+/* ------------------------ HEADER ----------------------- */
+/* .header {
+} */
+/* .header__container {
+} */
+.header__body {
+    padding: 30px 0;
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 0;
+}
+.header__logo {
+    margin: 0 195px 0 0;
+}
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+.logo:hover .logo__text {
+    color: #40DDB6;
+    transition: all 0.4s ease;
+}
+.logo a {
+    vertical-align: middle;
+}
+.logo img {
+    vertical-align: middle;
+    margin: 0 4px 0 0;
+}
+.logo__text {
+    color: #37393F;
+    font-family: "Poppins";
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.52;
+    vertical-align: middle;
+}
+.logo__text span {
+    color: #6B77E5;
+}
+.header__menu {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    padding: 22px 0;
+}
+.header__menu > li {
+    display: inline-block;
+    color: #37393F;
+    font-size: 18px;
+    line-height: 1.22;
+    text-transform: capitalize;
+}
+.header__menu > li:hover {
+    color: #6B77E5;
+    transition: all 0.3s ease;
+}
+.header__menu > li:not(:last-child) {
+    margin: 0 40px 0 0;
+}
+/* ------------------------------------------------------- */
+
+/* ------------------------- MAIN ------------------------ */
+/* .page {
+} */
+.page > * {
+    padding: 75px 0;
+}
+.page > *:first-child {
+    padding-top: 150px;
+}
+.page > *:last-child {
+    padding-bottom: 150px;
+}
+.page__web-graphics {
+}
+
+/* ---------------- WHY US --------------- */
+.web-graphics {
+    background-color: #7D7D7D;
+}
+.web-graphics__container {
+}
+.web-graphics__content {
+    color: #FFFFFF;
+}
+.web-graphics__content > *:not(:last-child) {
+    margin-bottom: 30px;
+}
+.web-graphics__content img {
+    vertical-align: middle;
+    margin: 0 50px 0 0;
+}
+/* --------------------------------------- */
+
+/* ------------------------------------------------------- */
+
+/* ------------------------ FOOTER ----------------------- */
+.footer {
+    background-color: #37393F;
+    padding: 60px 0;
+}
+/* .footer__container {
+} */
+.footer__row {
+    font-size: 0;
+}
+.footer__logo {
+    margin: 0 185px 0 0;
+}
+.logo__text_light {
+    color: #FFFFFF;
+}
+/* .footer__list {
+} */
+.list-contacts {
+    display: inline-block;
+}
+.list-contacts > li {
+    display: inline-block;
+}
+.list-contacts > li:not(:last-child) {
+    margin: 0 60px 0 0;
+}
+.list-contacts img {
+    vertical-align: middle;
+    margin: 0 10px 0 0;
+}
+.list-contacts__content {
+    display: inline-block;
+    vertical-align: middle;
+}
+.list-contacts__label {
+    color: #FFFFFF;
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: capitalize;
+    margin: 0 0 3px 0;
+}
+.list-contacts__content a {
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.22;
+}
+.list-contacts__content a:hover {
+    color: #40DDB6;
+    transition: all 0.4s ease;
+}
+/* ------------------------------------------------------- */
+
+/* ======================================================= */
