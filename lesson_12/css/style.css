@@ -34,8 +34,8 @@ body {
     color: #FFF;
     background-color: #37393F;
 }
-.header__container {
-}
+/* .header__container {
+} */
 .header__content-top {
     font-size: 0;
     padding: 19px 0;
@@ -127,8 +127,8 @@ body {
     width: 17px;
     height: 16px;
 }
-.header__socials {
-}
+/* .header__socials {
+} */
 .socials {
     font-size: 0;
     display: inline-block;
@@ -143,10 +143,10 @@ body {
 .socials__item:not(:last-child) {
     margin-right: 16px;
 }
-.socials__link {
+/* .socials__link {
 }
 .socials__image {
-}
+} */
 /* --------------------------------------- */
 
 /* -------------- HEADER-MAIN ------------ */
@@ -154,8 +154,8 @@ body {
     color: #37393F;
     background: #FFF;
 }
-.header__container {
-}
+/* .header__container {
+} */
 .header__content-main {
     font-size: 0;
     padding: 30px 0 36px 0;
@@ -174,8 +174,8 @@ body {
 .header__content-main > *:not(:last-child) {
     margin-right: 40px;
 }
-.header__logo {
-}
+/* .header__logo {
+} */
 .logo {
     display: inline-block;
     vertical-align: middle;
@@ -249,8 +249,8 @@ body {
     transform: translate(-100%, -50%);
     background: url(../img/header/icon_arrow_down.svg) center / contain no-repeat;
 }
-.menu-header__limk {
-}
+/* .menu-header__limk {
+} */
 .menu-header__limk:hover {
     color: #6B77E5;
 }
@@ -349,18 +349,18 @@ body {
 .page > * {
     margin-bottom: 150px;
 }
-.page__practice {
+/* .page__practice {
 }
 .page__car {
 }
 .page__experts {
-}
+} */
 
 /* --------------- PRACTICE -------------- */
-.practice {
+/* .practice {
 }
 .practice__container {
-}
+} */
 .practice__title {
     color: #37393F;
     font-size: 40px;
@@ -372,8 +372,8 @@ body {
 .practice__box {
     position: relative;
 }
-.practice__item {
-}
+/* .practice__item {
+} */
 .item {
     color: #FFF;
     padding: 15px;
@@ -428,8 +428,8 @@ body {
 /* --------------------------------------- */
 
 /* ------------------ CAR ---------------- */
-.car {
-}
+/* .car {
+} */
 .car__container {
     font-size: 0;
 }
@@ -473,14 +473,14 @@ body {
 /* --------------------------------------- */
 
 /* ---------------- EXPERTS -------------- */
-.experts {
+/* .experts {
 }
 .experts__container {
 }
 .experts__rows {
 }
 .experts__row {
-}
+} */
 .experts__rows > li:not(:last-child) {
     margin-bottom: 31px;
 }
