@@ -402,9 +402,7 @@ body {
 	padding-bottom: 50px;
 	background-color: #FFF9F4;
 	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	gap: 20px;
+	align-items: center;
 }
 
 .hero__body {
