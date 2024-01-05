@@ -229,9 +229,10 @@ body {
   .menu__body {
     color: #FFF;
     text-shadow: 1px 1px 5px rgba(220, 220, 220, 0.5);
-    height: 100%;
+    height: calc(100% - 58px);
     overflow: auto;
-    padding: 80px 20px 30px 20px;
+    margin-top: 58px;
+    padding: 50px 20px 30px 20px;
     background: linear-gradient(135deg, rgba(60, 60, 60, 0.8), rgba(255, 255, 255, 0.2));
     -webkit-backdrop-filter: blur(6px);
             backdrop-filter: blur(6px);
@@ -244,16 +245,6 @@ body {
   }
   .menu-open .menu__body {
     left: 0;
-  }
-  .menu__body::before {
-    content: "";
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    width: 100%;
-    height: 57px;
-    background-color: #FFF;
   }
 }
 .menu__list {
