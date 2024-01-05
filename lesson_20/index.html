@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson 20 [SCSS]</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- HEADER -->
+		<header class="header">
+			<div class="header__container">
+				<div class="header__body">
+					<div class="logo">
+						<a href="index.html" class="logo__link">
+							<img src="img/header/logo.svg" alt="site logo">
+						</a>
+					</div>
+					<nav class="menu">
+						<div class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item menu__item--active">
+									<a href="#" class="menu__link">
+										Shop
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										Men
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										Women
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										Combos
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										Joggers
+									</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+					<form action="#" enctype="multipart/form-data" class="search-form">
+						<button type="submit" class="search-form__button">
+							<img src="img/header/search_icon.svg" alt="search icon">
+						</button>
+						<input type="search" name="search" placeholder="Search" class="search-form__input">
+					</form>
+					<div class="action-header">
+						<ul class="action-header__list">
+							<li class="action-header__item">
+								<a href="#" class="action-header__link">
+									<img src="img/header/heart_icon.svg" alt="favorite icon">
+								</a>
+							</li>
+							<li class="action-header__item">
+								<a href="#" class="action-header__link">
+									<img src="img/header/user_icon.svg" alt="user icon">
+								</a>
+							</li>
+							<li class="action-header__item">
+								<a href="#" class="action-header__link">
+									<img src="img/header/shopping_cart.svg" alt="shopping cart icon">
+								</a>
+							</li>
+							<li class="action-header__item action-header__item--burger">
+								<button class="icon-menu">
+									<span></span>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<!-- HERO -->
+			<div class="hero">
+				<img src="img/main/hero/product_slide_1.webp" alt="photo model" class="hero__image">
+				<div class="hero__container">
+					<div class="hero__body">
+						<div class="hero__content">
+							<div class="hero__label">
+								T-shirt / Tops
+							</div>
+							<h1 class="title title--hero">
+								Summer Value Pack
+							</h1>
+							<p class="hero__text">
+								cool / colorful / comfy
+							</p>
+							<a href="#" class="hero__button button">
+								Shop Now
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- SECTION -->
+			<div class="section">
+				<div class="section__container">
+					<div class="section__cards">
+						<div class="card card--big">
+							<img src="img/main/section/photo_01.webp" alt="photo model" class="card__image">
+							<div class="card__content card__content--light">
+								<div class="card__label">
+									Low Price
+								</div>
+								<h2 class="card__title title">
+									High Coziness
+								</h2>
+								<div class="card__discount">
+									UPTO 50% OFF
+								</div>
+								<a href="#" class="card__link">
+									Explore Items
+								</a>
+							</div>
+						</div>
+						<div class="card card--big">
+							<img src="img/main/section/photo_02.webp" alt="photo model" class="card__image">
+							<div class="card__content card__content--light">
+								<div class="card__label">
+									Beyoung Presents
+								</div>
+								<h2 class="card__title title">
+									Breezy Summer Style
+								</h2>
+								<div class="card__discount">
+									UPTO 50% OFF
+								</div>
+								<a href="#" class="card__link">
+									Explore Items
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- NEW ARRIVAL -->
+			<div class="new-arrival">
+				<div class="new-arrival__container">
+					<h2 class="new-arrival__title title title--decor">
+						New Arrival
+					</h2>
+					<div class="new-arrival__products">
+						<a href="#" class="product">
+							<div class="product__image">
+								<img src="img/main/new_arrival/photo_01.webp" alt="product photo">
+							</div>
+							<h5 class="product__title">
+								Knitted Joggers
+							</h5>
+						</a>
+						<a href="#" class="product">
+							<div class="product__image">
+								<img src="img/main/new_arrival/photo_02.webp" alt="product photo">
+							</div>
+							<h5 class="product__title">
+								Full Sleeve
+							</h5>
+						</a>
+						<a href="#" class="product">
+							<div class="product__image">
+								<img src="img/main/new_arrival/photo_03.webp" alt="product photo">
+							</div>
+							<h5 class="product__title">
+								Active T-Shirts
+							</h5>
+						</a>
+						<a href="#" class="product">
+							<div class="product__image">
+								<img src="img/main/new_arrival/photo_04.webp" alt="product photo">
+							</div>
+							<h5 class="product__title">
+								Urban Shirts
+							</h5>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- SAVING ZONE -->
+			<div class="saving-zone">
+				<div class="saving-zone__container">
+					<h2 class="saving-zone__title title title--decor">
+						Big Saving Zone
+					</h2>
+					<div class="saving-zone__cards">
+						<div class="card card--saving-zone">
+							<img src="img/main/saving_zone/photo_01.webp" alt="photo model" class="card__image">
+							<div class="card__content card__content--saving-zone card__content--light">
+								<h3 class="card__title title title--secondary">
+									Hawaiian Shirts
+								</h3>
+								<p class="card__text">
+									Dress up in summer vibe
+								</p>
+								<div class="card__discount card__discount--saving-zone">
+									UPTO 50% OFF
+								</div>
+								<div class="card__button-decor">
+									<svg xmlns="http://www.w3.org/2000/svg" width="23" height="26" viewBox="0 0 23 26"
+										fill="none">
+										<path
+											d="M11.5678 1.28613L11.5678 23.8893M22 15.1958L12.7972 24.3985C12.1182 25.0775 11.0173 25.0775 10.3383 24.3985L1.13557 15.1958"
+											stroke="white" stroke-width="2" stroke-linecap="round" />
+									</svg>
+									<a href="#" class="card__button card__button--shop-now button">
+										SHOP NOW
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="card card--saving-zone card--content-right">
+							<img src="img/main/saving_zone/photo_02.webp" alt="photo model" class="card__image">
+							<div class="card__content card__content--saving-zone card__content--light">
+								<a href="#" class="card__button button">
+									Limited Stock
+								</a>
+								<h3 class="card__title title title--secondary">
+									Printed T-Shirt
+								</h3>
+								<p class="card__text">
+									New Designs Every Week
+								</p>
+								<div class="card__discount card__discount--saving-zone">
+									UPTO 40% OFF
+								</div>
+								<div class="card__button-decor">
+									<svg xmlns="http://www.w3.org/2000/svg" width="23" height="26" viewBox="0 0 23 26"
+										fill="none">
+										<path
+											d="M11.5678 1.28613L11.5678 23.8893M22 15.1958L12.7972 24.3985C12.1182 25.0775 11.0173 25.0775 10.3383 24.3985L1.13557 15.1958"
+											stroke="white" stroke-width="2" stroke-linecap="round" />
+									</svg>
+									<a href="#" class="card__button card__button--shop-now button">
+										SHOP NOW
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="card card--saving-zone card--content-right">
+							<img src="img/main/saving_zone/photo_03.webp" alt="photo model" class="card__image">
+							<div class="card__content card__content--saving-zone">
+								<h3 class="card__title title title--secondary">
+									Cargo Joggers
+								</h3>
+								<p class="card__text">
+									Move with style & comfort
+								</p>
+								<div class="card__discount card__discount--saving-zone">
+									UPTO 50% OFF
+								</div>
+								<div class="card__button-decor">
+									<svg xmlns="http://www.w3.org/2000/svg" width="23" height="27" viewBox="0 0 23 27"
+										fill="none">
+										<path
+											d="M11.5678 1.61938L11.5678 24.2225M22 15.529L12.7972 24.7318C12.1182 25.4108 11.0173 25.4108 10.3383 24.7318L1.13557 15.529"
+											stroke="#3C4242" stroke-width="2" stroke-linecap="round" />
+									</svg>
+									<a href="#" class="card__button card__button--shop-now button">
+										SHOP NOW
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="card card--saving-zone card--content-right card--big">
+							<img src="img/main/saving_zone/photo_04.webp" alt="photo model" class="card__image">
+							<div class="card__content card__content--saving-zone">
+								<h3 class="card__title title title--secondary">
+									Urban Shirts
+								</h3>
+								<p class="card__text">
+									Live In Confort
+								</p>
+								<div class="card__discount card__discount--saving-zone">
+									FLAT 60% OFF
+								</div>
+								<div class="card__button-decor">
+									<svg xmlns="http://www.w3.org/2000/svg" width="23" height="27" viewBox="0 0 23 27"
+										fill="none">
+										<path
+											d="M11.5678 1.61938L11.5678 24.2225M22 15.529L12.7972 24.7318C12.1182 25.4108 11.0173 25.4108 10.3383 24.7318L1.13557 15.529"
+											stroke="#3C4242" stroke-width="2" stroke-linecap="round" />
+									</svg>
+									<a href="#" class="card__button card__button--shop-now button">
+										SHOP NOW
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="card card--saving-zone card--content-right card--big">
+							<img src="img/main/saving_zone/photo_05.webp" alt="photo model" class="card__image">
+							<div class="card__content card__content--saving-zone">
+								<h3 class="card__title title title--secondary">
+									Oversized T-Shirts
+								</h3>
+								<p class="card__text">
+									Street Style Icon
+								</p>
+								<div class="card__discount card__discount--saving-zone">
+									FLAT 60% OFF
+								</div>
+								<div class="card__button-decor">
+									<svg xmlns="http://www.w3.org/2000/svg" width="23" height="27" viewBox="0 0 23 27"
+										fill="none">
+										<path
+											d="M11.5678 1.61938L11.5678 24.2225M22 15.529L12.7972 24.7318C12.1182 25.4108 11.0173 25.4108 10.3383 24.7318L1.13557 15.529"
+											stroke="#3C4242" stroke-width="2" stroke-linecap="round" />
+									</svg>
+									<a href="#" class="card__button card__button--shop-now button">
+										SHOP NOW
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- FOOTER -->
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__content">
+					Footer
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
