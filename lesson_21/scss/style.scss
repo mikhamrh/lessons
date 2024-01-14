@@ -18,6 +18,7 @@ $textLightColor: #FFF;
 $bgColor: #FFF;
 $bgColorDark: #3C4242;
 $bgColorInput: #F6F6F6;
+$bgImage: #a6a6a6;
 
 // breakpoint------------------
 $pc: 1199.98px;
@@ -488,7 +489,7 @@ body {
 /* ----------------- HERO ---------------- */
 .hero {
 	min-height: calc(100svh - 108px);
-	background-color: $mainColor;
+	background-color: $bgImage;
 	padding: 100px 0 100px 0;
 	margin-top: 108px;
 	position: relative;
@@ -713,7 +714,7 @@ body {
 	grid-column: span 2;
 	font-family: "CoreSansC";
 	padding: 56px 30px;
-	background-color: $mainColor;
+	background-color: $bgImage;
 	border-radius: 12px;
 	overflow: hidden;
 	position: relative;
@@ -950,7 +951,8 @@ body {
 
 	// .product__image
 	&__image {
-		display: inline-block;
+		display: block;
+		background-color: $bgImage;
 		border-radius: 12px;
 		overflow: hidden;
 		aspect-ratio: 1 / 1;
@@ -1135,6 +1137,7 @@ body {
 	// .we-made__right-side
 	&__right-side {
 		border-radius: 0 12px 12px 0;
+		background-color: $bgImage;
 		overflow: hidden;
 		position: relative;
 
@@ -1175,8 +1178,9 @@ body {
 
 	// .card-category__image
 	&__image {
-		display: inline-block;
+		display: block;
 		border-radius: 10px;
+		background-color: $bgImage;
 		overflow: hidden;
 		aspect-ratio: 272 / 394;
 
@@ -1410,8 +1414,9 @@ body {
 
 	// .card-product__image
 	&__image {
-		display: inline-block;
+		display: block;
 		border-radius: 12px;
+		background-color: $bgImage;
 		overflow: hidden;
 		aspect-ratio: 282 / 370;
 
@@ -1577,6 +1582,7 @@ body {
 	// .card-feedback__image
 	&__image {
 		flex: 0 0 58px;
+		background-color: $bgImage;
 		aspect-ratio: 1 / 1;
 
 		img {
