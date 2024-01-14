@@ -643,7 +643,7 @@ body {
 /* ----------------- HERO ---------------- */
 .hero {
   min-height: calc(100svh - 108px);
-  background-color: #8A33FD;
+  background-color: #a6a6a6;
   padding: 100px 0 100px 0;
   margin-top: 108px;
   position: relative;
@@ -863,7 +863,7 @@ body {
   grid-column: span 2;
   font-family: "CoreSansC";
   padding: 56px 30px;
-  background-color: #8A33FD;
+  background-color: #a6a6a6;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -1067,7 +1067,8 @@ body {
   }
 }
 .product__image {
-  display: inline-block;
+  display: block;
+  background-color: #a6a6a6;
   border-radius: 12px;
   overflow: hidden;
   aspect-ratio: 1/1;
@@ -1234,6 +1235,7 @@ body {
 }
 .we-made__right-side {
   border-radius: 0 12px 12px 0;
+  background-color: #a6a6a6;
   overflow: hidden;
   position: relative;
 }
@@ -1270,8 +1272,9 @@ body {
   gap: 20px;
 }
 .card-category__image {
-  display: inline-block;
+  display: block;
   border-radius: 10px;
+  background-color: #a6a6a6;
   overflow: hidden;
   aspect-ratio: 272/394;
 }
@@ -1491,8 +1494,9 @@ body {
   margin-bottom: 0;
 }
 .card-product__image {
-  display: inline-block;
+  display: block;
   border-radius: 12px;
+  background-color: #a6a6a6;
   overflow: hidden;
   aspect-ratio: 282/370;
 }
@@ -1630,6 +1634,7 @@ body {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 58px;
           flex: 0 0 58px;
+  background-color: #a6a6a6;
   aspect-ratio: 1/1;
 }
 .card-feedback__title {
