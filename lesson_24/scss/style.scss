@@ -1,0 +1,184 @@
+@use "sass:math";
+
+// Fonts
+@import "_fonts.scss";
+// Reset
+@import "_reset.scss";
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1920;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1220;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// VARIABLES ------------------
+
+// color ----------------------
+$textColor: #7D7D7D;
+$textColorDark: #37393F;
+$textColorLight: #FFF;
+$bgColor: #FFF;
+$bgColorDark: #37393F;
+$bgColorBrandGreen: #40DDB6;
+$bgColorBrandBlue: #6B77E5;
+$bgImage: #a6a6a6;
+
+// breakpoint -----------------
+$pc: 1199.98;
+$tablet: 991.98;
+$mobile: 767.98;
+$mobileSmall: 479.98;
+$pcEm: toEm(1199.98);
+$tabletEm: toEm(991.98);
+$mobileEm: toEm(767.98);
+$mobileSmallEm: toEm(480);
+
+// ----------------------------
+
+// Functions
+@import "_functions";
+// Mixins
+@import "_mixins";
+// Commons
+@import "_commons.scss";
+
+/* ===================== BASIC STYLES ==================== */
+
+body {
+	color: $textColor;
+	font-family: "Inter", sans-serif;
+	font-size: toRem(18);
+
+	.menu-open & {
+		@media (max-width: $tablet) {
+			overflow: hidden;
+		}
+	}
+}
+
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	main {
+		flex-grow: 1;
+	}
+}
+
+[class*="__container"] {
+	max-width: 1270px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+/* -------------- TEMPLATES -------------- */
+%burgerDecor {
+	width: 55%;
+	height: 2px;
+	background-color: $textColor;
+	position: absolute;
+	left: 50%;
+	transition: all 0.3s;
+}
+
+%imgAbsoluteCover {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+%imgContain {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+%imgCover {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: scale(1.0001);
+	transition: transform 0.3s;
+}
+
+%linkHoverAfter {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		bottom: 4px;
+		width: 0;
+		height: 1px;
+		background-color: currentColor;
+		transition: all 0.3s;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			&::after {
+				left: 0;
+				width: 100%;
+			}
+		}
+	}
+}
+
+%linkHover {
+	text-decoration-line: underline;
+	text-decoration-color: transparent;
+	transition: text-decoration-color 0.3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			text-decoration-color: currentColor;
+		}
+	}
+}
+
+%imgHover {
+	@media (any-hover: hover) {
+		&:hover {
+			img {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
+
+%btnHoverShadowLight {
+	transition: box-shadow 0.3s;
+
+	@media (any-hover: hover) {
+		&:hover {
+			box-shadow: 0 0 8px #F6F6F6;
+		}
+	}
+}
+
+/* --------------------------------------- */
+
+/* ------------------------ HEADER ----------------------- */
+/* ------------------------------------------------------- */
+
+/* ------------------------- MAIN ------------------------ */
+/* ----------------- HERO ---------------- */
+/* --------------------------------------- */
+/* ------------------------------------------------------- */
+
+/* ------------------------ FOOTER ----------------------- */
+/* ------------------------------------------------------- */
+
+/* ======================================================= */
