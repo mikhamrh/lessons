@@ -1,0 +1,137 @@
+// SOCIAL
+.social {
+
+	// .social__list
+	&__list {
+		display: flex;
+		align-items: center;
+		column-gap: toRem(16);
+	}
+
+	// .social__item
+	// &__item {}
+
+	// .social__link
+	&__link {
+		flex: 0 0 toRem(18);
+		width: toRem(18);
+		height: toRem(18);
+		display: flex;
+		align-items: center;
+
+		@media (any-hover:hover) {
+			&:hover {
+				svg {
+					fill: $colorBrandGreen;
+				}
+			}
+		}
+
+		svg {
+			@extend %imgContain;
+			fill: $textColorLight;
+			transition: fill 0.3s;
+		}
+	}
+}
+
+// HEADER-BLOCK
+.header-block {
+	display: grid;
+	gap: toRem(16);
+
+	&--center {
+		justify-items: center;
+	}
+
+	// .header-block__label
+	&__label {
+		color: $textColorDark;
+		font-weight: 500;
+		line-height: 1.22;
+		display: inline-flex;
+		gap: toEm(6, 18);
+
+		&::before {
+			content: '';
+			flex: 0 0 toEm(12, 18);
+			width: toEm(12, 18);
+			height: toEm(12, 18);
+			margin-top: toEm(5, 18);
+			background-color: $colorBrandGreen;
+		}
+	}
+
+	// .header-block__title
+	&__title {
+
+		.header-block--center & {
+			text-align: center;
+		}
+	}
+}
+
+// TITLE
+.title {
+	font-family: "Poppins";
+	@include adaptiveValue(font-size, 40, 28);
+	font-weight: 700;
+	line-height: 1.2;
+	text-transform: capitalize;
+
+	&--item {
+		@include adaptiveValue(font-size, 20, 16, 0, $containerWidth, $tablet);
+		font-weight: 600;
+		line-height: 1.5;
+	}
+}
+
+// SPOILER
+.spoiler {
+
+	// .spoiler__item
+	&__item {
+		min-height: 0;
+	}
+
+	// .spoiler__title
+	&__title {
+		display: block;
+		width: 100%;
+		text-align: start;
+		position: relative;
+	}
+
+	// .spoiler._init
+	&._init {
+
+		// .spoiler._init .spoiler__title
+		.spoiler__title {
+			cursor: pointer;
+			padding-right: toRem(40);
+
+			&::after {
+				content: "";
+				position: absolute;
+				right: toRem(5);
+				top: 50%;
+				transform: translateY(-50%);
+				width: toRem(16);
+				height: toRem(8);
+				background: url("../img/arrow_down_light.svg") center / contain no-repeat;
+				transition: transform 0.3s ease 0s;
+			}
+
+			&._active {
+				&::after {
+					transform: translateY(-50%) rotate(180deg);
+				}
+			}
+		}
+
+		// .spoiler._init .spoiler__content
+		.spoiler__content {
+			padding-bottom: toRem(15);
+		}
+	}
+}
