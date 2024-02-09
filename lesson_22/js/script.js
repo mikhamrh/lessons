@@ -1,10 +1,6 @@
+"use strict"
+
 // BURGER MENU
-// const icon = document.querySelector('.icon-menu');
-
-// icon.addEventListener('click', function () {
-// 	document.documentElement.classList.toggle('menu-open');
-// });
-
 document.addEventListener('click', documentAction)
 
 function documentAction(e) {
@@ -219,3 +215,58 @@ data-spollers="768,min" - спойлери будуть працювати ті�
 Якщо потрібно, щоб в блоці відкривався тільки один спойлер додаємо атрибут data-one-spoiler
 */
 // =======================================================
+
+const root = document.querySelector(":root");
+const iconProgress = document.querySelector(".icon-progress");
+
+let option = {
+	root: null,
+	rootMargin: "0px 0px 0px 0px",
+	threshold: 0.5,
+};
+
+let callback = (entries, observer) => {
+	entries.forEach(entry => {
+		const targetElement = entry.target;
+		if (entry.isIntersecting) {
+			targetElement.classList.add("animate");
+
+			let counter = 0;
+			let delay = 20;
+
+			setInterval(() => {
+				if (counter == parseInt(statsValue)) {
+					clearInterval;
+				} else {
+					counter++;
+					stats.textContent = `${counter}%`;
+				}
+			}, delay);
+
+			root.style.setProperty('--stroke-dashoffset', dashoffsetEnd);
+		} else {
+			targetElement.classList.remove("animate");
+		}
+	});
+}
+
+let observer = new IntersectionObserver(callback, option);
+
+observer.observe(iconProgress);
+
+
+
+function getStyleValue(element, property) {
+	if (element instanceof Element && typeof property === 'string') {
+		const style = window.getComputedStyle(element);
+		return style.getPropertyValue(property);
+	} else {
+		return null;
+	}
+}
+
+const stats = document.querySelector('[data-stats]');
+const statsValue = parseInt(stats.getAttribute('data-stats'));
+
+const dashoffsetStart = parseInt(getStyleValue(iconProgress, 'stroke-dashoffset'));
+const dashoffsetEnd = dashoffsetStart - dashoffsetStart / 100 * statsValue;
