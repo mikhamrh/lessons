@@ -217,7 +217,177 @@ data-spollers="768,min" - спойлери будуть працювати ті�
 // =======================================================
 
 const root = document.querySelector(":root");
-const iconProgress = document.querySelector(".icon-progress");
+
+// let option = {
+// 	root: null,
+// 	rootMargin: "0px 0px 0px 0px",
+// 	threshold: 0.5,
+// };
+
+let callback = (entries, observer) => {
+	entries.forEach(entry => {
+
+		if (entry.isIntersecting) {
+			entry.target.classList.add("animate");
+
+			animateProgressIcon(entry.target)
+		} else {
+			entry.target.classList.remove("animate");
+		}
+	});
+};
+
+// let observer = new IntersectionObserver(callback, option);
+
+// document.querySelectorAll('.card-stats__icon').forEach(card => {
+// 	observer.observe(card);
+// });
+
+
+function getStyleValue(element, property) {
+	if (element instanceof Element && typeof property === 'string') {
+		const style = window.getComputedStyle(element)
+		return style.getPropertyValue(property)
+	} else {
+		return null
+	}
+}
+
+function animateProgressIcon(element) {
+	if (element) {
+		const value = parseInt(element.dataset.stats)
+		const delay = parseInt(element.dataset.delay)
+		let counter = 0
+		const children = element.children
+		let valueElement
+		let progressElement
+
+		if (children.length) {
+			for (let i = 0; i < children.length; i++) {
+				switch (true) {
+					case children[i].classList.contains('card-stats__value'):
+						valueElement = children[i]
+						break;
+
+					case children[i].classList.contains('card-stats__progress'):
+						progressElement = children[i]
+						break;
+
+					default:
+						break;
+				}
+			}
+		}
+
+		const dashoffsetStart = parseInt(getStyleValue(progressElement, 'stroke-dashoffset'));
+		const dashoffsetEnd = dashoffsetStart - dashoffsetStart / 100 * value;
+		const duration = delay * value / 1000 + 's'
+
+		root.style.setProperty('--dashoffset', dashoffsetEnd);
+		root.style.setProperty('--duration', duration);
+
+		setInterval(() => {
+			if (counter == value) {
+				clearInterval;
+			} else {
+				counter++;
+				valueElement.textContent = `${counter}%`;
+			}
+		}, delay);
+	}
+}
+
+
+// COUNTER
+
+function counterInit(elements) {
+	let counters = elements ? elements : document.querySelectorAll('[data-counter]')
+
+	if (counters) {
+		counters.forEach(counter => {
+			const duration = parseInt(counter.dataset.counter) ? parseInt(counter.dataset.counter) : 1000
+			const digitsCounter = counter.querySelector('[data-digits-counter]')
+			const svgCounter = counter.querySelector('[data-svg-counter]')
+
+			if (svgCounter) {
+				const svgRadius = svgCounter.querySelector('circle').r.baseVal.value
+				let circumference = Math.round(2 * Math.PI * svgRadius)
+				svgCounter.style.strokeDasharray = circumference
+				svgCounter.style.strokeDashoffset = circumference
+				svgCounter.style.transitionProperty = 'stroke-dashoffset'
+				svgCounter.style.transitionDuration = duration + 'ms'
+			}
+
+			if (digitsCounter) {
+				const value = parseInt(digitsCounter.innerHTML)
+				digitsCountersAnimate(digitsCounter, duration)
+				svgCountersAnimate(svgCounter, value)
+			}
+		})
+	}
+
+}
+
+counterInit()
+
+
+// Функція ініціалізації
+// function digitsCountersInit(elements) {
+// 	let digitsCounters = elements ? elements : document.querySelectorAll('[data-digits-counter]')
+
+// 	if (digitsCounters) {
+// 		digitsCounters.forEach(digitsCounter => {
+// 			digitsCountersAnimate(digitsCounter)
+// 		})
+// 	}
+// }
+
+// Функція аніміції цифер лічильника
+function digitsCountersAnimate(element, duration) {
+	let startTimestamp = null
+	duration ? duration : 1000
+	const startValue = parseInt(element.innerHTML)
+	const startPosition = 0
+
+	const step = (timestamp) => {
+		if (!startTimestamp) startTimestamp = timestamp
+		const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+		element.innerHTML = Math.floor(progress * (startPosition + startValue))
+		if (progress < 1) {
+			window.requestAnimationFrame(step)
+		}
+	}
+
+	window.requestAnimationFrame(step)
+}
+
+// Функція аніміції svg іконки лічильника
+function svgCountersAnimate(element, value) {
+	if (!element.classList.contains('_animate')) {
+		element.classList.add('_animate')
+		const dashoffsetStart = parseInt(getStyleValue(element, 'stroke-dashoffset'))
+		const dashoffsetEnd = Math.round(dashoffsetStart - dashoffsetStart / 100 * 95)
+		element.style.strokeDashoffset = dashoffsetEnd
+	} else {
+		element.classList.remove('_animate')
+	}
+}
+
+svgCountersAnimate(document.querySelector('[data-svg-counter]'))
+
+// function svgProgressInit(elements) {
+// 	let svgProgress = elements ? elements : document.querySelectorAll('[data-progress]')
+
+// 	if (svgProgress) {
+// 		svgProgress.forEach(item => {
+// 			svgProgressAnimate(item)
+// 		})
+// 	}
+// }
+
+// function svgProgressAnimate(element) {
+// 	const duration = parseInt(element.dataset.digitsCounter) ? parseInt(element.dataset.digitsCounter) : 1000
+// }
 
 let option = {
 	root: null,
@@ -225,48 +395,31 @@ let option = {
 	threshold: 0.5,
 };
 
-let callback = (entries, observer) => {
-	entries.forEach(entry => {
-		const targetElement = entry.target;
-		if (entry.isIntersecting) {
-			targetElement.classList.add("animate");
+// let observer = new IntersectionObserver((entries, observer) => {
+// 	entries.forEach(entry => {
+// 		if (entry.isIntersecting) {
+// 			const targetElement = entry.target
+// 			const digitsCountersItems = targetElement.querySelectorAll('[data-digits-counter]')
+// 			if (digitsCountersItems.length) {
+// 				digitsCountersInit(digitsCountersItems)
+// 			}
 
-			let counter = 0;
-			let delay = 20;
+// 			observer.unobserve(targetElement)
+// 		}
+// 	})
+// }, option)
 
-			setInterval(() => {
-				if (counter == parseInt(statsValue)) {
-					clearInterval;
-				} else {
-					counter++;
-					stats.textContent = `${counter}%`;
-				}
-			}, delay);
+// let cardsStats = document.querySelectorAll('.card-stats')
+// if (cardsStats.length) {
+// 	cardsStats.forEach(card => {
+// 		observer.observe(card)
+// 	})
+// }
 
-			root.style.setProperty('--stroke-dashoffset', dashoffsetEnd);
-		} else {
-			targetElement.classList.remove("animate");
-		}
-	});
-}
-
-let observer = new IntersectionObserver(callback, option);
-
-observer.observe(iconProgress);
+// =======================================================
 
 
+// SLIDE
 
-function getStyleValue(element, property) {
-	if (element instanceof Element && typeof property === 'string') {
-		const style = window.getComputedStyle(element);
-		return style.getPropertyValue(property);
-	} else {
-		return null;
-	}
-}
-
-const stats = document.querySelector('[data-stats]');
-const statsValue = parseInt(stats.getAttribute('data-stats'));
-
-const dashoffsetStart = parseInt(getStyleValue(iconProgress, 'stroke-dashoffset'));
-const dashoffsetEnd = dashoffsetStart - dashoffsetStart / 100 * statsValue;
+const brandsItems = document.querySelector('.brands__items').cloneNode(true)
+document.querySelector('.brands__body').append(brandsItems)

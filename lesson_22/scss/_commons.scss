@@ -1,3 +1,128 @@
+// LOGO
+.logo {
+	display: inline-flex;
+	align-items: center;
+	gap: toRem(4);
+
+	@media (any-hover:hover) {
+		&:hover {
+			.logo__text {
+				color: $colorBrandGreen;
+			}
+		}
+	}
+
+	// .logo__image
+	&__image {
+		flex: 0 1 toRem(43);
+		@include adaptiveValue(width, 43, 34, 0, $tablet, $mobileSmall);
+		aspect-ratio: 43 / 30;
+
+		img {
+			@extend %imgContain;
+		}
+	}
+
+	// .logo__text
+	&__text {
+		color: $textColorDark;
+		font-family: "Poppins";
+		@include adaptiveValue(font-size, 25, 16, 0, $tablet, 320);
+		font-weight: 700;
+		transition: color 0.3s;
+
+		.logo--light & {
+			color: $textColorLight;
+		}
+
+		@media (max-width: $mobileSmallEm) {
+			display: none;
+		}
+
+		span {
+			color: $colorBrandBlue;
+
+			.logo--light & {
+				color: $colorBrandGreen;
+			}
+		}
+	}
+
+	// .logo--light
+	&--light {
+		@media (any-hover: hover) {
+			&:hover {
+				.logo__text {
+					color: $colorBrandBlue;
+				}
+			}
+		}
+	}
+}
+
+// BUTTON
+.button {
+	text-align: center;
+	font-weight: 600;
+	line-height: 1.22;
+	text-transform: capitalize;
+	min-width: toRem(185);
+	@include adaptiveValue(min-height, 65, 50, 0, $containerWidth, $tablet);
+	padding: toRem(10) toRem(15);
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: toRem(10);
+
+	@media (any-hover: hover) {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	// .button--blue
+	&--blue {
+		color: $textColorLight;
+		background-color: $colorBrandBlue;
+	}
+
+	// .button--green
+	&--green {
+		color: $textColorDark;
+		background-color: $colorBrandGreen;
+	}
+
+	&--black {
+		background-color: $bgColorDark;
+	}
+
+	// .button--watch
+	&--watch {
+		color: $textColorLight;
+		padding: 0;
+	}
+
+	// .button__icon
+	&__icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue(flex-basis, 60, 40, 0, $containerWidth, $tablet);
+		@include adaptiveValue(width, 60, 40, 0, $containerWidth, $tablet);
+		aspect-ratio: 1 / 1;
+		border-radius: 50%;
+		background-color: $colorBrandBlue;
+
+		svg {
+			width: calc(20 / 60 * 100%);
+			aspect-ratio: 1 / 1;
+			object-fit: contain;
+			fill: #FFF;
+			padding-left: toRem(3);
+		}
+	}
+}
+
 // SOCIAL
 .social {
 
@@ -9,11 +134,12 @@
 	}
 
 	// .social__item
-	// &__item {}
+	&__item {
+		flex: 0 0 toRem(18);
+	}
 
 	// .social__link
 	&__link {
-		flex: 0 0 toRem(18);
 		width: toRem(18);
 		height: toRem(18);
 		display: flex;
@@ -35,8 +161,26 @@
 	}
 }
 
+// HEAD-SECTION
+.head-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: toRem(30);
+
+	&__header-block {
+		max-width: toRem(560);
+	}
+
+	&__button {
+		color: $textColorLight;
+	}
+}
+
 // HEADER-BLOCK
 .header-block {
+	text-transform: capitalize;
 	display: grid;
 	gap: toRem(16);
 
@@ -44,9 +188,21 @@
 		justify-items: center;
 	}
 
+	&--light {
+		color: $textColorLight;
+	}
+
+	&--dark {
+		color: $textColorDark;
+	}
+
+	.subscribe & {
+		gap: toRem(26);
+		@include adaptiveValue(gap, 26, 16)
+	}
+
 	// .header-block__label
 	&__label {
-		color: $textColorDark;
 		font-weight: 500;
 		line-height: 1.22;
 		display: inline-flex;
@@ -60,6 +216,19 @@
 			margin-top: toEm(5, 18);
 			background-color: $colorBrandGreen;
 		}
+
+		// .header-block__label--hero
+		&--hero {
+			font-weight: 600;
+		}
+
+		&--blue {
+
+			&::before {
+				background-color: $colorBrandBlue;
+			}
+		}
+
 	}
 
 	// .header-block__title
@@ -79,6 +248,19 @@
 	line-height: 1.2;
 	text-transform: capitalize;
 
+	// .title--hero
+	&--hero {
+		@include adaptiveValue(font-size, 60, 36, 0, $containerWidth, $tablet);
+		line-height: 1.1;
+	}
+
+	// .title--smaller
+	&--smaller {
+		@include adaptiveValue(font-size, 30, 24);
+		font-weight: 600;
+	}
+
+	// .title--item
 	&--item {
 		@include adaptiveValue(font-size, 20, 16, 0, $containerWidth, $tablet);
 		font-weight: 600;
@@ -96,10 +278,17 @@
 
 	// .spoiler__title
 	&__title {
-		display: block;
 		width: 100%;
 		text-align: start;
-		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: toRem(10);
+	}
+
+	// .spoiler__icon
+	&__icon {
+		display: none;
 	}
 
 	// .spoiler._init
@@ -108,24 +297,24 @@
 		// .spoiler._init .spoiler__title
 		.spoiler__title {
 			cursor: pointer;
-			padding-right: toRem(40);
-
-			&::after {
-				content: "";
-				position: absolute;
-				right: toRem(5);
-				top: 50%;
-				transform: translateY(-50%);
-				width: toRem(16);
-				height: toRem(8);
-				background: url("../img/arrow_down_light.svg") center / contain no-repeat;
-				transition: transform 0.3s ease 0s;
-			}
 
 			&._active {
-				&::after {
-					transform: translateY(-50%) rotate(180deg);
+				.spoiler__icon {
+					transform: rotate(180deg);
 				}
+			}
+		}
+
+		// .spoiler._init .spoiler__icon
+		.spoiler__icon {
+			width: toRem(16);
+			height: toRem(8);
+			display: flex;
+			transition: transform 0.3s;
+
+			svg {
+				@extend %imgContain;
+				fill: currentColor;
 			}
 		}
 
@@ -134,4 +323,67 @@
 			padding-bottom: toRem(15);
 		}
 	}
+}
+
+// LIST
+.list {
+
+	// .list__item
+	&__item {
+		font-family: "Poppins";
+		font-size: toRem(20);
+		@include adaptiveValue(font-size, 20, 18, 0, $containerWidth, $tablet);
+		line-height: 1.65;
+		display: flex;
+		gap: toRem(8);
+
+		&:not(:last-child) {
+			@include adaptiveValue(margin-bottom, 23, 15, 0, $tablet, $mobileSmall)
+		}
+	}
+
+	// .list__icon
+	&__icon {
+		flex: 0 0 toEm(27, 20);
+		width: toEm(27, 20);
+		height: toEm(27, 20);
+		margin-top: toEm(3, 20);
+
+		svg {
+			@extend %imgContain;
+		}
+
+		&--blue {
+			svg {
+				fill: $colorBrandBlue;
+			}
+		}
+
+		&--green {
+			svg {
+				fill: $colorBrandGreen;
+			}
+		}
+	}
+}
+
+
+// TEXT GREEN
+.text-green {
+	color: $colorBrandGreen;
+}
+
+// TEXT BLUE
+.text-blue {
+	color: $colorBrandBlue;
+}
+
+// TEXT YELLOW
+.text-yellow {
+	color: #FFB342;
+}
+
+// TEXT WHITE
+.text-white {
+	color: #FFF;
 }

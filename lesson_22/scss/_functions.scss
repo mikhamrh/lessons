@@ -12,3 +12,8 @@
 	$rez: math.div($num1, $num2) + em;
 	@return $rez;
 }
+
+@function toVw($value) {
+	$rez: math.div($value, math.div($maxWidth, 100)) + vw;
+	@return $rez;
+}
