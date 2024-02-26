@@ -216,33 +216,6 @@ data-spollers="768,min" - спойлери будуть працювати ті�
 */
 // =======================================================
 
-const root = document.querySelector(":root");
-
-// let option = {
-// 	root: null,
-// 	rootMargin: "0px 0px 0px 0px",
-// 	threshold: 0.5,
-// };
-
-let callback = (entries, observer) => {
-	entries.forEach(entry => {
-
-		if (entry.isIntersecting) {
-			entry.target.classList.add("animate");
-
-			animateProgressIcon(entry.target)
-		} else {
-			entry.target.classList.remove("animate");
-		}
-	});
-};
-
-// let observer = new IntersectionObserver(callback, option);
-
-// document.querySelectorAll('.card-stats__icon').forEach(card => {
-// 	observer.observe(card);
-// });
-
 
 function getStyleValue(element, property) {
 	if (element instanceof Element && typeof property === 'string') {
@@ -252,107 +225,46 @@ function getStyleValue(element, property) {
 		return null
 	}
 }
-
-function animateProgressIcon(element) {
-	if (element) {
-		const value = parseInt(element.dataset.stats)
-		const delay = parseInt(element.dataset.delay)
-		let counter = 0
-		const children = element.children
-		let valueElement
-		let progressElement
-
-		if (children.length) {
-			for (let i = 0; i < children.length; i++) {
-				switch (true) {
-					case children[i].classList.contains('card-stats__value'):
-						valueElement = children[i]
-						break;
-
-					case children[i].classList.contains('card-stats__progress'):
-						progressElement = children[i]
-						break;
-
-					default:
-						break;
-				}
-			}
-		}
-
-		const dashoffsetStart = parseInt(getStyleValue(progressElement, 'stroke-dashoffset'));
-		const dashoffsetEnd = dashoffsetStart - dashoffsetStart / 100 * value;
-		const duration = delay * value / 1000 + 's'
-
-		root.style.setProperty('--dashoffset', dashoffsetEnd);
-		root.style.setProperty('--duration', duration);
-
-		setInterval(() => {
-			if (counter == value) {
-				clearInterval;
-			} else {
-				counter++;
-				valueElement.textContent = `${counter}%`;
-			}
-		}, delay);
-	}
-}
+// =======================================================
 
 
 // COUNTER
 
-function counterInit(elements) {
-	let counters = elements ? elements : document.querySelectorAll('[data-counter]')
+// Функція ініціалізації цифрового лічильника
+function digitsCountersInit(elements) {
+	// Перевірка на наявність елемента
+	let digitsCounters = elements ? elements : document.querySelectorAll('[data-digits-counter]')
 
-	if (counters) {
-		counters.forEach(counter => {
-			const duration = parseInt(counter.dataset.counter) ? parseInt(counter.dataset.counter) : 1000
-			const digitsCounter = counter.querySelector('[data-digits-counter]')
-			const svgCounter = counter.querySelector('[data-svg-counter]')
-
-			if (svgCounter) {
-				const svgRadius = svgCounter.querySelector('circle').r.baseVal.value
-				let circumference = Math.round(2 * Math.PI * svgRadius)
-				svgCounter.style.strokeDasharray = circumference
-				svgCounter.style.strokeDashoffset = circumference
-				svgCounter.style.transitionProperty = 'stroke-dashoffset'
-				svgCounter.style.transitionDuration = duration + 'ms'
-			}
-
-			if (digitsCounter) {
-				const value = parseInt(digitsCounter.innerHTML)
-				digitsCountersAnimate(digitsCounter, duration)
-				svgCountersAnimate(svgCounter, value)
-			}
+	if (digitsCounters.length) {
+		digitsCounters.forEach(digitsCounter => {
+			digitsCountersAnimate(digitsCounter)
 		})
 	}
-
 }
 
-counterInit()
-
-
-// Функція ініціалізації
-// function digitsCountersInit(elements) {
-// 	let digitsCounters = elements ? elements : document.querySelectorAll('[data-digits-counter]')
-
-// 	if (digitsCounters) {
-// 		digitsCounters.forEach(digitsCounter => {
-// 			digitsCountersAnimate(digitsCounter)
-// 		})
-// 	}
-// }
+function easeOutQuad(num) {
+	return 1 - Math.pow(1 - num, 2)
+}
 
 // Функція аніміції цифер лічильника
-function digitsCountersAnimate(element, duration) {
+function digitsCountersAnimate(element) {
 	let startTimestamp = null
-	duration ? duration : 1000
+	const duration = parseInt(element.dataset.digitsCounter) ? parseInt(element.dataset.digitsCounter) : 1000
 	const startValue = parseInt(element.innerHTML)
 	const startPosition = 0
+
+	const parent = element.parentElement
+	const svgIcon = parent.querySelector('[data-svg-counter]')
+	if (svgIcon) {
+		if (svgIcon.dataset.svgCounter == 'circle') {
+			svgCounterInit(svgIcon, startValue, duration)
+		}
+	}
 
 	const step = (timestamp) => {
 		if (!startTimestamp) startTimestamp = timestamp
 		const progress = Math.min((timestamp - startTimestamp) / duration, 1)
-		element.innerHTML = Math.floor(progress * (startPosition + startValue))
+		element.innerHTML = Math.floor(easeOutQuad(progress) * (startPosition + startValue))
 		if (progress < 1) {
 			window.requestAnimationFrame(step)
 		}
@@ -361,33 +273,35 @@ function digitsCountersAnimate(element, duration) {
 	window.requestAnimationFrame(step)
 }
 
-// Функція аніміції svg іконки лічильника
-function svgCountersAnimate(element, value) {
-	if (!element.classList.contains('_animate')) {
-		element.classList.add('_animate')
-		const dashoffsetStart = parseInt(getStyleValue(element, 'stroke-dashoffset'))
-		const dashoffsetEnd = Math.round(dashoffsetStart - dashoffsetStart / 100 * 95)
-		element.style.strokeDashoffset = dashoffsetEnd
-	} else {
-		element.classList.remove('_animate')
+// Функція ініціалізації svg-іконки цифрового лічильника
+function svgCounterInit(element, percent, duration) {
+	const svgCounter = element ? element : document.querySelector('[data-svg-counter]')
+
+	if (svgCounter) {
+		svgCircleAnimate(svgCounter, percent, duration)
 	}
 }
 
-svgCountersAnimate(document.querySelector('[data-svg-counter]'))
+// Функція аніміції svg-circle іконки
+function svgCircleAnimate(element, percent, duration) {
+	const svgRadius = element.querySelector('circle').r.baseVal.value
+	const circumference = Math.round(2 * Math.PI * svgRadius)
+	const endPosition = Math.round(circumference / 100 * percent)
+	let startTimestamp = null
 
-// function svgProgressInit(elements) {
-// 	let svgProgress = elements ? elements : document.querySelectorAll('[data-progress]')
+	const step = (timestamp) => {
+		if (!startTimestamp) startTimestamp = timestamp
+		const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+		element.style.strokeDasharray = circumference
+		element.style.strokeDashoffset = Math.floor(circumference - easeOutQuad(progress) * endPosition)
+		if (progress < 1) {
+			requestAnimationFrame(step)
+		}
+	}
 
-// 	if (svgProgress) {
-// 		svgProgress.forEach(item => {
-// 			svgProgressAnimate(item)
-// 		})
-// 	}
-// }
+	requestAnimationFrame(step)
+}
 
-// function svgProgressAnimate(element) {
-// 	const duration = parseInt(element.dataset.digitsCounter) ? parseInt(element.dataset.digitsCounter) : 1000
-// }
 
 let option = {
 	root: null,
@@ -395,31 +309,56 @@ let option = {
 	threshold: 0.5,
 };
 
-// let observer = new IntersectionObserver((entries, observer) => {
-// 	entries.forEach(entry => {
-// 		if (entry.isIntersecting) {
-// 			const targetElement = entry.target
-// 			const digitsCountersItems = targetElement.querySelectorAll('[data-digits-counter]')
-// 			if (digitsCountersItems.length) {
-// 				digitsCountersInit(digitsCountersItems)
-// 			}
+let observer = new IntersectionObserver((entries, observer) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			const targetElement = entry.target
+			const digitsCountersItems = targetElement.querySelectorAll('[data-digits-counter]')
+			if (digitsCountersItems.length) {
+				digitsCountersInit(digitsCountersItems)
+			}
 
-// 			observer.unobserve(targetElement)
-// 		}
-// 	})
-// }, option)
+			observer.unobserve(targetElement)
+		}
+	})
+}, option)
 
-// let cardsStats = document.querySelectorAll('.card-stats')
-// if (cardsStats.length) {
-// 	cardsStats.forEach(card => {
-// 		observer.observe(card)
-// 	})
-// }
+let cardsStats = document.querySelectorAll('.card-stats')
+if (cardsStats.length) {
+	cardsStats.forEach(card => {
+		observer.observe(card)
+	})
+}
 
 // =======================================================
 
 
 // SLIDE
+const sliderItems = document.querySelectorAll('.slider__items')
+sliderItems.forEach(item => {
+	item.parentElement.append(item.cloneNode(true))
+})
 
-const brandsItems = document.querySelector('.brands__items').cloneNode(true)
-document.querySelector('.brands__body').append(brandsItems)
+// =======================================================
+
+
+// RATING
+const ratings = document.querySelectorAll('[data-rating]')
+
+ratings.forEach(rating => {
+	const ratingItems = rating.querySelectorAll('.rating__item')
+	const ratingValue = rating.dataset.rating
+	const valueFull = parseInt(ratingValue)
+	const valuePart = (ratingValue - valueFull) * 100
+
+	for (let i = 0; i < valueFull; i++) {
+		ratingItems[i].classList.add('_full')
+	}
+
+	if (valuePart > 0) {
+		ratingItems[valueFull].classList.add('_part')
+		const itemPart = document.createElement('span')
+		itemPart.style.width = valuePart + '%'
+		ratingItems[valueFull].prepend(itemPart)
+	}
+})

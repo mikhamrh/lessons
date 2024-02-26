@@ -17,3 +17,8 @@
 	$rez: math.div($value, math.div($maxWidth, 100)) + vw;
 	@return $rez;
 }
+
+@function toVmax($value) {
+	$rez: math.div($value, math.div($maxWidth, 100)) + vmax;
+	@return $rez;
+}

@@ -167,6 +167,11 @@ address {
 
 /* ------------------------ HEADER ----------------------- */
 .header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 20;
+	width: 100%;
 
 	// .header__top
 	// &__top {}
@@ -269,6 +274,7 @@ address {
 .main-header {
 	min-height: toRem(131);
 	padding: toRem(10) 0;
+	background-color: $bgColor;
 	display: flex;
 	align-items: center;
 
@@ -316,22 +322,20 @@ address {
 	@media (max-width: $tabletEm) {
 		font-size: toRem(22);
 		position: fixed;
-		left: 0;
+		right: -100%;
 		top: 0;
 		z-index: 20;
-		width: 100%;
+		width: toRem(320);
 		height: calc(100svh - toRem(84));
 		padding: toRem(40) toRem(20);
 		margin-top: toRem(84);
 		background-color: $bgColor;
+		box-shadow: toRem(0) toRem(0) toRem(5) rgba(55, 57, 63, 0.6);
 		overflow: auto;
-		visibility: hidden;
-		opacity: 0;
-		transition: all 0.3s;
+		transition: right 0.4s;
 
 		.menu-open & {
-			visibility: visible;
-			opacity: 1;
+			right: 0;
 		}
 	}
 
@@ -359,13 +363,12 @@ address {
 		}
 
 		@media (max-width: $tabletEm) {
-			align-self: center;
 
 			.menu-open & {
 				transform: translateX(50%);
 				visibility: hidden;
 				opacity: 0;
-				animation: show-item 0.3s ease forwards;
+				animation: show-item 0.4s ease forwards;
 
 				@for $i from 1 through 6 {
 					&:nth-child(#{$i}) {
@@ -395,25 +398,28 @@ address {
 			}
 
 			&:hover {
-				.menu__icon {
-					transform: rotate(180deg);
-				}
 
-				.submenu {
-					pointer-events: all;
+				@media (min-width: $tabletEm) {
+					.menu__icon {
+						transform: rotate(180deg);
+					}
 
-					.submenu__list {
-						.submenu__item {
-							transform: translateY(0);
-							visibility: visible;
-							opacity: 1;
-							transition: all 0.2s;
+					.submenu {
+						pointer-events: all;
 
-							@for $i from 1 through 4 {
-								&:nth-child(#{$i}) {
-									$delay: (
-										$i - 1) * 0.1;
-									transition-delay: #{$delay}s;
+						.submenu__list {
+							.submenu__item {
+								transform: translateY(0);
+								visibility: visible;
+								opacity: 1;
+								transition: all 0.2s;
+
+								@for $i from 1 through 4 {
+									&:nth-child(#{$i}) {
+										$delay: (
+											$i - 1) * 0.1;
+										transition-delay: #{$delay}s;
+									}
 								}
 							}
 						}
@@ -427,10 +433,13 @@ address {
 	&__link {
 		display: inline-block;
 		color: $textColorDark;
-		text-align: center;
 		line-height: 1.22;
 		padding: toRem(10) 0;
 		transition: color 0.3s;
+
+		@media (min-width: $tabletEm) {
+			text-align: center;
+		}
 	}
 
 	// .menu__icon
@@ -450,34 +459,48 @@ address {
 }
 
 .submenu {
-	position: absolute;
-	left: 0;
-	top: 100%;
-	z-index: 20;
-	pointer-events: none;
+
+	@media (min-width: $tabletEm) {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		z-index: 20;
+		pointer-events: none;
+	}
 
 	// .submenu__list
 	// &__list {}
 
 	// .submenu__item
 	&__item {
-		background-color: $colorBrandBlue;
-		visibility: hidden;
-		opacity: 0;
-		transform: translateY(100%);
+
+		@media (min-width: $tabletEm) {
+			visibility: hidden;
+			opacity: 0;
+			transform: translateY(100%);
+			transition: background-color 0.3s;
+		}
 	}
 
 	// .submenu__link
 	&__link {
-		color: $textColorLight;
+		color: $textColorDark;
 		white-space: nowrap;
 		display: inline-block;
-		padding: toRem(10) toRem(20);
-		transition: color 0.3s;
+		padding: toRem(10) 0;
+		width: 100%;
+		transition: all 0.3s;
+
+		@media (min-width: $tabletEm) {
+			color: $textColorLight;
+			background-color: $colorBrandBlue;
+			padding: toRem(10) toRem(20);
+		}
 
 		@media (any-hover: hover) {
 			&:hover {
-				color: $colorBrandGreen;
+				color: $textColorDark;
+				background-color: #e0e0e0;
 			}
 		}
 	}
@@ -552,6 +575,11 @@ address {
 
 /* ------------------------- MAIN ------------------------ */
 .page {
+	padding-top: toRem(84);
+
+	@media (min-width: $tabletEm) {
+		padding-top: toRem(191);
+	}
 
 	// .page__we-care
 	&__we-care {
@@ -586,6 +614,22 @@ address {
 	// .page__project
 	&__project {
 		@include adaptiveValue(margin-bottom, 150, 50);
+
+		>* {
+			&:not(:last-child) {
+				@include adaptiveValue(margin-bottom, 40, 25);
+			}
+		}
+	}
+
+	// .page__testimonial
+	&__testimonial {
+		@include adaptiveValue(margin-bottom, 275, 50)
+	}
+
+	// .page__get-business
+	&__get-business {
+		@include adaptiveValue(margin-bottom, 200, 50)
 	}
 }
 
@@ -629,7 +673,7 @@ address {
 			width: 100vw;
 			height: 100%;
 			background-color: rgba(55, 57, 63, 0.91);
-			backdrop-filter: blur(9.5px);
+			backdrop-filter: blur(toRem(8));
 
 			@media (min-width: $mobileEm) {
 				right: 0;
@@ -895,60 +939,12 @@ address {
 .brands {
 
 	// .brands__container
-	// &__container {}
-
-	// .brands__body
-	&__body {
-		display: flex;
-		overflow: hidden;
-		position: relative;
-
-		&:hover {
-			.brands__items {
-				animation-play-state: paused;
-			}
-		}
-
-		&::before,
-		&::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			z-index: 2;
-			width: 15%;
-			height: 100%;
-		}
-
-		&::before {
-			left: 0;
-			background: linear-gradient(to right, #FFF, rgba(255, 255, 255, 0));
-		}
-
-		&::after {
-			right: 0;
-			background: linear-gradient(to left, #FFF, rgba(255, 255, 255, 0));
-		}
+	&__container {
+		padding: 0;
 	}
 
-	// .brands__items
-	&__items {
-		flex: 0 0 auto;
-		display: flex;
-		align-items: center;
-		animation: slide 20s linear infinite;
-	}
-
-	// .brands__item
-	&__item {
-		flex: 0 0 auto;
-		max-height: toRem(99);
-		padding: 0 toRem(57)
-	}
-
-	// .brands__image
-	&__image {
-		@extend %imgContain;
-	}
+	// .brands__slider
+	// &__slider {}
 }
 
 @keyframes slide {
@@ -1011,6 +1007,14 @@ address {
 	justify-content: space-between;
 	gap: toRem(15);
 
+	@media (any-hover: hover) {
+		&:hover {
+			.card-service__icon {
+				background-color: $colorBrandBlue;
+			}
+		}
+	}
+
 	// .card-service__content
 	&__content {
 		text-transform: capitalize;
@@ -1042,20 +1046,14 @@ address {
 		flex: 0 0 toRem(72);
 		width: toRem(72);
 		height: toRem(72);
+		background-color: $colorBrandGreen;
 		border-radius: 50%;
 		overflow: hidden;
 		padding: toRem(12);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
-		&--green {
-			background-color: $colorBrandGreen;
-		}
-
-		&--blue {
-			background-color: $colorBrandBlue;
-		}
+		transition: background-color 0.3s;
 
 		img {
 			max-width: 100%;
@@ -1126,24 +1124,26 @@ address {
 	}
 
 	// .solutions__cards
-	&__cards {}
+	&__cards {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(15);
+		max-width: toRem(610);
+	}
+
+	// .solutions__card
+	&__card {
+		flex: 1 1 calc(100% / 2 - toRem(15));
+		background-color: #2E2F34;
+	}
 
 	// .solutions__list
-	&__list {}
-
-	// .solutions__item
-	&__item {}
-
-	// .solutions__icon
-	&__icon {}
-
-	// .solutions__link
-	&__link {
-		color: $colorBrandGreen;
-		font-weight: 600;
-		line-height: 1.22;
-		text-transform: capitalize;
-		@extend %linkHoverAfter;
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: toRem(15);
+		row-gap: toRem(23);
+		max-width: toRem(610);
 	}
 
 	// .solutions__image
@@ -1168,11 +1168,15 @@ address {
 }
 
 .card-stats {
-	background-color: #2E2F34;
+	font-family: "Poppins";
 	padding: toRem(27) toRem(30);
 	display: inline-flex;
 	align-items: center;
 	gap: toRem(12);
+
+	.get-business & {
+		background-color: $colorBrandGreen
+	}
 
 	// .card-stats__icon
 	&__icon {
@@ -1181,45 +1185,43 @@ address {
 		height: toRem(80);
 		border-radius: 50%;
 		overflow: hidden;
-		background-color: $bgColorDark;
 		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		.get-business & {
+			flex: 0 0 toRem(128);
+			width: toRem(128);
+			height: toRem(128);
+		}
 	}
 
 	// .card-stats__value
 	&__value {
-		font-family: "Poppins";
 		font-size: toRem(20);
 		font-weight: 600;
 		line-height: 1.5;
+		text-align: center;
+
+		.how-we-work & {
+			font-size: toRem(18);
+
+			strong {
+				font-size: toRem(35);
+				line-height: 1.2;
+			}
+		}
 	}
 
 	// .card-stats__progress
 	&__progress {
 		@extend %imgAbsoluteCover;
 		transform: rotate(-90deg);
-		stroke: $colorBrandGreen;
-		// stroke-width: 3px;
-		// stroke-dasharray: 239;
-		// stroke-dashoffset: 239;
-		// transition: stroke-dashoffset 1s;
-
-		&:hover {
-			stroke-dashoffset: 12;
-		}
-
-		// .animate & {
-		// 	animation-name: progressBar;
-		// 	animation-duration: var(--duration);
-		// 	animation-timing-function: linear;
-		// 	animation-fill-mode: forwards;
-		// }
 	}
 
 	// .card-stats__content
-	&__content {}
+	// &__content {}
 
 	// .card-stats__label
 	&__label {
@@ -1233,13 +1235,13 @@ address {
 		font-weight: 600;
 		line-height: 1.5;
 	}
-}
 
-// @keyframes progressBar {
-// 	100% {
-// 		stroke-dashoffset: var(--dashoffset);
-// 	}
-// }
+	// .card-stats__content
+	&__content {
+		@include adaptiveValue(font-size, 25, 18);
+		line-height: 1.28;
+	}
+}
 
 /* --------------------------------------- */
 
@@ -1254,6 +1256,349 @@ address {
 				@include adaptiveValue(margin-bottom, 40, 25);
 			}
 		}
+	}
+}
+
+/* --------------------------------------- */
+
+/* ------------- TESTIMONIAL ------------- */
+.testimonial {
+
+	// .testimonial__container
+	// &__container {}
+
+	// .testimonial__body
+	&__body {
+		@include adaptiveValue(padding-top, 140, 40);
+		border-top: 1px solid #C5C5C5;
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: calc(38 / 1220 * 100%);
+		// @include adaptiveValue(gap, 38, 20)
+		row-gap: toRem(25);
+	}
+
+	// .testimonial__content
+	&__content {
+		flex: 1 1 calc(324 / 1220 * 100%);
+		min-width: toRem(260);
+
+		>* {
+			margin-bottom: toRem(23);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// .testimonial__header-block
+	&__header-block {
+		max-width: toRem(500);
+	}
+
+	// .testimonial__text
+	&__text {
+		line-height: 1.44;
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+		}
+	}
+
+	// .testimonial__cards
+	&__cards {
+		flex: 1 1 calc(858 / 1220 * 100%);
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		column-gap: calc(36 / 858 * 100%);
+		@include adaptiveValue(row-gap, 36, 20);
+	}
+
+	// .testimonial__card
+	&__card {
+		flex: 1 1 calc(411 / 858 * 100%);
+		min-width: toRem(290);
+
+		@media (max-width: $mobileSmallEm) {
+			margin-right: toRem(-15);
+			margin-left: toRem(-15);
+		}
+	}
+}
+
+.card-testimonial {
+	background-color: #F6F6F6;
+	@include adaptiveValue(padding-top, 50, 30);
+	@include adaptiveValue(padding-bottom, 50, 30);
+	@include adaptiveValue(padding-right, 37, 20);
+	@include adaptiveValue(padding-left, 37, 20);
+
+	>* {
+		@include adaptiveValue(margin-bottom, 34, 20);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// .card-testimonial__person
+	&__person {
+		display: flex;
+		gap: toRem(16);
+	}
+
+	// .card-testimonial__image
+	&__image {
+		flex: 0 0 toRem(101);
+		width: toRem(101);
+		height: toRem(101);
+		border-radius: 50%;
+		overflow: hidden;
+
+		img {
+			@extend %imgCover;
+		}
+	}
+
+	// .card-testimonial__info
+	&__info {
+
+		>* {
+			margin-bottom: toRem(1);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// .card-testimonial__name
+	&__name {
+		font-family: 'Poppins';
+		font-size: toRem(20);
+		color: $textColorDark;
+		font-weight: 600;
+		line-height: 1.5;
+	}
+
+	// .card-testimonial__position
+	&__position {
+		font-size: toRem(16);
+		line-height: 1.375;
+	}
+
+	// .card-testimonial__text
+	&__text {
+		@include adaptiveValue(font-size, 22, 18);
+		font-style: italic;
+		line-height: 1.46;
+
+		p {
+
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+		}
+	}
+}
+
+/* --------------------------------------- */
+
+/* ------------- GET BUSINESS ------------ */
+.get-business {
+	background-color: #6B77E5;
+
+	// .get-business__container
+	// &__container {}
+
+	// .get-business__body
+	&__body {
+		@include adaptiveValue(padding-top, 123, 40);
+		@include adaptiveValue(padding-bottom, 123, 40);
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: calc(53 / 1220 * 100%);
+		row-gap: toRem(50);
+	}
+}
+
+.how-we-work {
+	flex: 1 1 calc(587 / 1220 * 100%);
+	color: $textColorLight;
+
+	>* {
+		margin-bottom: toRem(20);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// .how-we-work__header-block
+	&__header-block {
+		max-width: toRem(426);
+	}
+
+	// .how-we-work__text
+	&__text {
+		line-height: 1.44;
+		margin-bottom: toRem(34);
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+		}
+	}
+
+	// .how-we-work__card-stats
+	&__card {
+		background-color: $bgColorDark;
+		@include adaptiveValue(padding, 35, 15);
+		@include adaptiveValue(margin-bottom, 50, 30);
+
+		@media (max-width: toRem(420)) {
+			margin-right: toRem(-15);
+			margin-left: toRem(-15);
+		}
+	}
+
+	// .how-we-work__list
+	&__list {
+		max-width: toRem(514);
+	}
+}
+
+.book-now {
+	flex: 1 1 calc(580 / 1220 * 100%);
+
+	>* {
+		margin-bottom: toRem(24);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// .book-now__header-block
+	&__header-block {
+		max-width: toRem(365);
+	}
+}
+
+.form {
+	background-color: $bgColor;
+	@include adaptiveValue(padding, 58, 15);
+	display: grid;
+	gap: toRem(25);
+
+	// .form__body
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: toRem(23);
+		row-gap: toRem(30);
+	}
+
+	// .form__input
+	&__input {
+		min-width: toRem(200);
+		flex: 1 1 100%;
+		min-height: toRem(65);
+		padding: 0 toRem(33);
+
+		// .form__input--half
+		&--half {
+			flex: 1 1 calc(220 / 464 * 100%);
+		}
+	}
+
+	// .form__textarea
+	&__textarea {
+		flex: 1 1 100%;
+		min-height: toRem(139);
+		padding: toRem(11) toRem(33);
+		resize: vertical;
+	}
+
+	// .form__button
+	&__button {
+		justify-self: start;
+
+		@media (max-width: toEm(375)) {
+			width: 100%;
+		}
+	}
+}
+
+.input {
+	color: $textColorDark;
+
+	.book-now & {
+		background-color: #F8F8F8;
+		border: toRem(1) solid #DDDDDD;
+	}
+
+	&[type="date"] {
+		padding-right: toRem(18);
+
+		&::-webkit-calendar-picker-indicator {
+			cursor: pointer;
+		}
+	}
+
+	&[type="time"] {
+		padding-right: toRem(18);
+	}
+
+	&:focus {
+		&::placeholder {
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
+
+	&::placeholder {
+		color: $textColorDark;
+		line-height: 1.22;
+		transition: opacity 0.3s;
+	}
+}
+
+.team {
+	min-height: toVmax(734);
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	// .team__body
+	&__body {
+		width: toVmax(601);
+		min-height: toVmax(222);
+		padding: toRem(20);
+		background-color: rgba(55, 57, 63, 0.8);
+		backdrop-filter: blur(toRem(8));
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		z-index: 5;
+	}
+
+	// .team__title
+	&__title {
+		color: $textColorLight;
+		text-align: center;
+	}
+
+	// .team__image
+	&__image {
+		@extend %imgAbsoluteCover
 	}
 }
 
@@ -1754,18 +2099,6 @@ address {
 		@include adaptiveValue(padding-right, 27, 15, 0, $containerWidth, $tablet);
 		@include adaptiveValue(padding-left, 27, 15, 0, $containerWidth, $tablet);
 		flex: 1 1 calc(264 / 407 * 100%);
-
-		&::placeholder {
-			color: $textColorDark;
-			transition: all 0.3s;
-		}
-
-		&:focus {
-			&::placeholder {
-				visibility: hidden;
-				opacity: 0;
-			}
-		}
 	}
 
 	// .form-subscribe__button
