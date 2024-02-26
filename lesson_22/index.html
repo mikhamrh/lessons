@@ -740,13 +740,16 @@
 							<form action="#" class="form">
 								<div class="form__body">
 									<input type="text" required autocomplete="on" name="name" placeholder="Your Name"
-										class="form__input input">
+										aria-labelledby="name" class="form__input input">
 									<input type="email" required autocomplete="on" name="mail" placeholder="Email Address"
-										class="form__input input">
+										aria-labelledby="mail" class="form__input input">
 									<input type="tel" autocomplete="on" name="phone" pattern="\+380[0-9]{9}"
-										title="+380671234567" placeholder="Phone Number" class="form__input input">
-									<input type="date" name="date" class="form__input form__input--half input">
-									<input type="time" name="time" class="form__input form__input--half input">
+										title="+380671234567" placeholder="Phone Number" aria-labelledby="phone"
+										class="form__input input">
+									<input type="date" name="date" aria-labelledby="date"
+										class="form__input form__input--half input">
+									<input type="time" name="time" aria-labelledby="time"
+										class="form__input form__input--half input">
 									<textarea name="description" placeholder="Service Description"
 										class="form__textarea input"></textarea>
 								</div>
