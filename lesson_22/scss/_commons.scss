@@ -336,6 +336,7 @@
 		@include adaptiveValue(font-size, 20, 18);
 		line-height: 1.65;
 		display: flex;
+		align-items: flex-start;
 		gap: toRem(8);
 
 		.solutions & {
@@ -417,7 +418,6 @@
 	&__link {
 		color: $colorBrandGreen;
 		font-weight: 600;
-		line-height: 1.22;
 		text-transform: capitalize;
 		@extend %linkHoverAfter;
 	}
